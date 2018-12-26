@@ -19,7 +19,31 @@ module.exports = function (grunt) {
             myConfig: {
                 mode: 'development',
                 entry: './app/app',
-                output: {path: path.resolve(__dirname,'dist')}
+                output: {
+                    path: path.resolve(__dirname,'dist'),
+                    filename: '[name].bundle.js',
+                    chunkFilename: '[name].chunk.js'
+                },
+                dev: {
+                    contentBase: path.resolve("dist"),
+                    hot: true,
+                    host: process.env.host || "localhost",
+                    port: process.env.PORT || 5000
+                },
+                optimization: {
+                  splitChunks: {
+                      chunks: 'all'
+                    // cacheGroups: {
+                    //   vendor: {
+                    //     chunks: 'initial',
+                    //     name: 'vendor',
+                    //     test: 'vendor',
+                    //     enforce: true
+                    //   },
+                    // }
+                  },
+                  runtimeChunk: true
+                }
             },
         },
         // serve
