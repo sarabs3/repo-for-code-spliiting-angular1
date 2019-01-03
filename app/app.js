@@ -1,7 +1,7 @@
 import angular from 'angular';
-import homeController from './controllers/home';
-import MainController from "./controllers/MainController";
-import ChapterController from "./controllers/ChapterController";
+import homeController from './scripts/controllers/home';
+import MainController from "./scripts/controllers/MainController";
+import ChapterController from "./scripts/controllers/ChapterController";
 import $ocLazyLoad from 'oclazyload';
 const ngRoute = require('angular-route');
 
